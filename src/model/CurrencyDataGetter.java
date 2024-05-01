@@ -1,5 +1,8 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.lang.InterruptedException;
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -7,12 +10,18 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.net.URI;
+import java.util.Scanner;
 
 public class CurrencyDataGetter {
-    private final String apiKey;
+    private String apiKey;
 
     public CurrencyDataGetter() {
-        this.apiKey = "0b419e60e22651c189d4c2bd";
+        try (BufferedReader bfReader = new BufferedReader(new FileReader("enter-your-api-key-here"))) {
+            this.apiKey = bfReader.readLine();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getCurrencyData(String currency) {
