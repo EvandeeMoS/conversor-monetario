@@ -54,10 +54,10 @@ public class Controller {
             else if (option == 10) {
                 System.out.println("Por gentileza, insira o código da moeda a ser convertida. (ex: BRL/USD/EUR...)\n");
                 System.out.print(": ");
-                base = scanner.nextLine();
+                base = scanner.nextLine().toUpperCase();
                 System.out.println("Por gentileza, insira o código da moeda alvo da conversão. (ex: BRL/USD/EUR...)\n");
                 System.out.print(": ");
-                target = scanner.nextLine();
+                target = scanner.nextLine().toUpperCase();
             }
             else if (option == 0) {
                 break;
@@ -75,11 +75,11 @@ public class Controller {
                 double value = Double.parseDouble(scanner.nextLine());
 
                 Currency baseCurrency = parser.jsonToCurrency(currencyDataGetter.getCurrencyData(base));
-                double convertRatio = baseCurrency.getConvertRatios().get(target);
+                double convertRatio = baseCurrency.getConvertRatios().get(target.toUpperCase());
                 double conversion = value * convertRatio;
 
 
-                view.displayConversionResult(baseCurrency.getConvertRatios().get(target), base, value, target, conversion);
+                view.displayConversionResult(convertRatio, base, value, target, conversion);
                 view.afterConversionOptionMenu();
 
                 System.out.print(": ");

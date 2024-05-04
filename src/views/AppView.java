@@ -34,15 +34,21 @@ public class AppView {
             double value,
             String target,
             double result) {
-        System.out.printf("""
+        System.out.println("""
                 +=========================================+
                 |  Resultados                             |
                 +=========================================+
                 |                                         |
-                | A razão da conversão é:                 |
-                | 1 [%s] -> %.4f [%s]                 |
+                | A razão da conversão é:                 |""");
+
+        System.out.printf("| 1 [%s] -> %.4f [%s]" + " ".repeat(23 - Double.toString(ratio).length()) + "|%n",
+                base, ratio, target);
+
+        System.out.println("""
                 |                                         |
-                | O seguinte valor:                       |%n""", base, ratio, target);
+                | O seguinte valor:                       |""");
+
+        // , base, ratio, target)
 
         // this code is to try to adjust the size of the box as the length of values grow,
         // if the length is too high, it converts the values to scientific notation to not break the box
