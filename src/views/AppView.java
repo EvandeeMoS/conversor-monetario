@@ -13,6 +13,10 @@ public class AppView {
                 |  4) Dólar para real brasileiro          |
                 |  5) Euro para dólar                     |
                 |  6) Euro para real brasileiro           |
+                |  7) Iene para real brasileiro           |
+                |  8) Yuan para real brasileiro           |
+                |  9) Rublo russo para real brasileiro    |
+                |  10) Moedas personalizadas              |
                 |                                         |
                 |  0) Finalizar o programa                |
                 |                                         |
@@ -25,16 +29,20 @@ public class AppView {
     }
 
     public void displayConversionResult(
+            double ratio,
             String base,
             double value,
             String target,
             double result) {
-        System.out.println("""
+        System.out.printf("""
                 +=========================================+
                 |  Resultados                             |
                 +=========================================+
                 |                                         |
-                | O seguinte valor:                       |""");
+                | A razão da conversão é:                 |
+                | 1 [%s] -> %.4f [%s]                 |
+                |                                         |
+                | O seguinte valor:                       |%n""", base, ratio, target);
 
         // this code is to try to adjust the size of the box as the length of values grow,
         // if the length is too high, it converts the values to scientific notation to not break the box
