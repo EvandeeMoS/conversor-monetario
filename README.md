@@ -10,6 +10,7 @@ O projeto é um conversor de moedas, onde o usuário possa realizar a conversão
 - Paradigma de orientação a objetos
 - ExchangeRateAPI
 - Gson
+- Postman
 
 ## Resultado
 <img width=680 src="https://github.com/EvandeeMoS/conversor-monetario/blob/master/preview.gif">
