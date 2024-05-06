@@ -66,6 +66,9 @@ public class CurrencyDataGetter {
                 if (response.statusCode() == 404) {
                     throw new IllegalArgumentException("O código de moeda é desconhecido. Por gentileza, tente novamente");
                 }
+                if (response.statusCode() == 403) {
+                    throw new Error("Api key inválida para essa requisição");
+                }
             }
         }
         catch (IOException | InterruptedException e) {
