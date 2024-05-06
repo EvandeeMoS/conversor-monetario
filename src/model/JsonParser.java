@@ -5,12 +5,14 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 public class JsonParser {
-    Gson gson;
+    private final Gson gson;
+    private final FileHandler fileHandler;
 
     public JsonParser() {
         this.gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();
+        this.fileHandler = new FileHandler();
     }
 
     public Currency jsonToCurrency(String json) {
@@ -18,7 +20,7 @@ public class JsonParser {
             return gson.fromJson(json, Currency.class);
         }
         catch (JsonSyntaxException e) {
-            e.printStackTrace();
+            fileHandler.logWrite(e.getMessage());
         }
         return null;
     }

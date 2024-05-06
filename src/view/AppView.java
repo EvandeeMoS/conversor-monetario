@@ -1,4 +1,4 @@
-package views;
+package view;
 
 public class AppView {
     public void displayMenuConversions() {
@@ -18,6 +18,7 @@ public class AppView {
                 |  9) Rublo russo para real brasileiro    |
                 |  10) Moedas personalizadas              |
                 |                                         |
+                |  11) Ver histórico de conversões        |
                 |  0) Finalizar o programa                |
                 |                                         |
                 +-----------------------------------------+
